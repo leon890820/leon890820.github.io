@@ -1,8 +1,519 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<p> test1</p>
-</body>
-</html>
+<html lang="zh-TW"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    
+    <meta name="description" content="  遊戲引擎框架實作 === - [目錄](https://hackmd.io/@leon890820/ryhCeeTwO)  本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaS">
+    
+    <title>目錄 - HackMD</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+    
+<script src="https://rules.quantcount.com/rules-p-GpPtabXgUQ99B.js" async=""></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js" nonce=""></script><script type="text/javascript" async="" src="https://secure.quantserve.com/quant.js" nonce=""></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KLW9Z3"></script><script nonce="">
+window.domain = 'hackmd.io'
+window.urlpath = ''
+window.debug = false
+window.version = '1.3.0'
+window.brand = 'HackMD'
+
+
+
+window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+
+window.PLANTUML_SERVER = 'https://ptuml.hackmd.io'
+
+window.ASSET_URL = 'https://assets.hackmd.io'
+
+window.USER_CAN_CREATE_TEAM = true
+window.USER_CAN_DELETE_ACCOUNT = true
+window.USER_DELETE_ACCOUNT_VIA_EMAIL = true
+window.PAYMENT_ENABLED = true
+window.GITHUB_SYNC_ENABLED = true
+window.GITLAB_SYNC_ENABLED = false
+window.GITLAB_SYNC_BASE_URL = ''
+window.VCS_SYNC_MODE = 'github'
+window.VCS_PROVIDER_NAME = 'GitHub'
+window.FREE_TEAM_NUM = 3
+window.FREE_TEAM_MEMBER_NUM = 3
+window.FREE_PUBLIC_TEAM_NUM = 10
+
+window.ALLOW_ANONYMOUS = true
+window.ALLOW_ANONYMOUS_EDIT = false
+window.PUBLIC_OVERVIEW = false
+window.INTERNAL_PUBLIC_OVERVIEW = false
+window.FULL_TEXT_SEARCH_ENABLE = false
+
+
+
+
+
+
+
+window.USE_CDN = false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+    
+<!-- Google Tag Manager -->
+<script nonce="">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+
+
+    <meta property="fb:app_id" content="1436904003272070">
+
+<meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/52538091?s=400">
+
+<meta name="twitter:site" content="@hackmdio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="遊戲引擎框架實作 - HackMD">
+
+<meta name="twitter:description" content="  遊戲引擎框架實作 === - [目錄](https://hackmd.io/@leon890820/ryhCeeTwO)  本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaS">
+
+
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/52538091?s=400">
+
+<meta property="og:site_name" content="HackMD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="遊戲引擎框架實作 - HackMD">
+
+<meta property="og:description" content="  遊戲引擎框架實作 === - [目錄](https://hackmd.io/@leon890820/ryhCeeTwO)  本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaS">
+
+
+	
+    <link rel="stylesheet" href="https://assets.hackmd.io/build/emojify.js/dist/css/basic/emojify.min.css">
+     <link href="https://assets.hackmd.io/build/font-vendor.b86e2bf451b246b1a88e.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.b8ecfc406ac0b5f77a26.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/book-vendor.8e4909fd1abdf9196cf3.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/book.3f3451e7027ae37222ce.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+<style></style><style type="text/css"></style><style></style></head>
+
+<body style="">
+    <div id="doc" class="container markdown-body" style="display:none;" data-hard-breaks="true">
+
+遊戲引擎框架實作
+===
+- [目錄](https://hackmd.io/@leon890820/ryhCeeTwO)
+
+本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaScript來呈現，若有興趣的人可以一同來學習。
+本篇會持續撰寫
+
+碰撞器
+---
+### 介紹
+- [1. 分離軸碰撞檢測](https://hackmd.io/@leon890820/rk66UFzDO)
+- [2. GJK](/6E9tpjt3Rvihx2GRpIzVSQ)
+
+### 數學公式
+- [3. 向量](https://hackmd.io/@leon890820/Skp69Qawd)
+- [4.旋轉矩陣](/Qy-2kw50SYKxSKDtaxuXWg)
+
+### 代碼實現
+- [5.向量實作](https://hackmd.io/@leon890820/rykhv2aDd)
+- [6.建立多邊形](/PkYwOLVdQGuVnjp2l6eLMQ)
+- [附錄A](https://hackmd.io/@leon890820/ByHuTOCDu)
+
+碰撞優化
+---
+### 四叉數
+- [1.簡介](/twmLTqU_Sz2naU7z4IS73w)
+
+光線追蹤
+---
+
+- [1.像素畫](/TSowyDXOSZyWo5WlHQqYHw)
+- [2.Vec3 class](/93KWRQucSeiioLQIzdwOzw)
+
+
+{%hackmd aPqG0f7uS3CSdeXvHSYQKQ %}
+</div>
+    <div id="meta" style="display: none;">{"tags":"game","disqus":"hackmd"}</div>
+    <div class="summary open">
+        <div class="toolbar">
+            <div class="form-group input-group-sm search">
+                <input class="form-control ui-summary-search" placeholder="搜尋標題...">
+            </div>
+            <div class="btn ui-summary-action ui-summary-refresh" aria-hidden="true" title="更新"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+            <a class="btn ui-summary-action ui-summary-edit" href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2Fc%2FryhCeeTwO%2Fedit%3Fedit" title="編輯" data-href="https://hackmd.io/c/ryhCeeTwO/edit?edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <div class="btn ui-summary-action ui-summary-collapse" aria-hidden="true" title="收起"><i class="fa fa-angle-double-left" aria-hidden="true"></i></div>
+        </div>
+        <div id="summary"><h1 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">遊戲引擎框架實作</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h1><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0" class="active"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2F%40leon890820%2FryhCeeTwO" data-href="https://hackmd.io/@leon890820/ryhCeeTwO">目錄</a></li>
+</ul><h2 data-startline="NaN" data-endline="NaN">碰撞器</h2><h3 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">介紹</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h3><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2F%40leon890820%2Frk66UFzDO" data-href="https://hackmd.io/@leon890820/rk66UFzDO">1. 分離軸碰撞檢測</a></li>
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2F6E9tpjt3Rvihx2GRpIzVSQ" data-href="/6E9tpjt3Rvihx2GRpIzVSQ">2. GJK</a></li>
+</ul><h3 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">數學公式</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h3><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2F%40leon890820%2FSkp69Qawd" data-href="https://hackmd.io/@leon890820/Skp69Qawd">3. 向量</a></li>
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2FQy-2kw50SYKxSKDtaxuXWg" data-href="/Qy-2kw50SYKxSKDtaxuXWg">4.旋轉矩陣</a></li>
+</ul><h3 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">代碼實現</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h3><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2F%40leon890820%2Frykhv2aDd" data-href="https://hackmd.io/@leon890820/rykhv2aDd">5.向量實作</a></li>
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2FPkYwOLVdQGuVnjp2l6eLMQ" data-href="/PkYwOLVdQGuVnjp2l6eLMQ">6.建立多邊形</a></li>
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/https%3A%2F%2Fhackmd.io%2F%40leon890820%2FByHuTOCDu" data-href="https://hackmd.io/@leon890820/ByHuTOCDu">附錄A</a></li>
+</ul><h2 data-startline="NaN" data-endline="NaN">碰撞優化</h2><h3 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">四叉數</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h3><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2FtwmLTqU_Sz2naU7z4IS73w" data-href="/twmLTqU_Sz2naU7z4IS73w">1.簡介</a></li>
+</ul><h2 data-startline="NaN" data-endline="NaN" class="collapsible"><span class="heading-span">光線追蹤</span><span class="collapsible-icons">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span></h2><ul class="nav nav-pills nav-stacked" data-startline="NaN" data-endline="NaN">
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2FTSowyDXOSZyWo5WlHQqYHw" data-href="/TSowyDXOSZyWo5WlHQqYHw">1.像素畫</a></li>
+<li data-startline="NaN" data-endline="NaN" data-position="NaN" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO/%2F93KWRQucSeiioLQIzdwOzw" data-href="/93KWRQucSeiioLQIzdwOzw">2.Vec3 class</a></li>
+</ul><style>
+.green {
+    color:#29E5A9;
+}
+
+.yellow {
+    color:#F1EF78;
+}
+
+.brown {
+    color:#990000;
+}
+
+.pink {
+    color:#DD9FBD;
+}
+
+.red {
+    color:#E71B18 ;
+}
+    
+.orange {
+    color:#E8A635;
+}
+    
+.purple {
+    color:#AC9FDD;        
+}
+
+.blue {
+    color:#20DEE5;
+}
+
+.ivory {
+    color:#FFFFF0;
+}
+
+.pearl {
+    color:#EAE0C8;
+}
+
+.beige {
+    color:#F5F5DC;
+}
+
+.cornsilk {
+    color:#FFF8DC;
+}
+
+.gainsboro {
+    color:#DCDCDC;
+}
+
+.light_grey {
+    color:#D3D3D3;
+}
+
+.silver {
+    color:#C0C0C0;
+}
+
+.dark_grey {
+    color:#A9A9A9;
+}
+
+.wheat {
+    color:#F5DEB3;
+}
+
+.burlywood {
+    color:#DEB887;
+}
+
+.tan {
+    color:#D2B48C;
+}
+
+/* https:\//english.cool\/colors\/ 這裡很多顏色，把反斜線去掉 */
+
+a.redlink { 
+    color:#DB1859;
+}
+    
+a.redlink:link {
+    color:#DB1859;
+    text-decoration:none;
+}
+    
+
+a.redlink:visiteid {
+    color:#DB1859;
+    text-decoration:none;
+}
+
+a.redlink:hover {
+    color:#19CABC;
+    text-decoration:none;
+}
+
+a.redlink:active {
+    color:#DB1859;
+    text-decoration:underline;
+    background:#FFFFFF;
+}
+
+a.pinklink {
+    color:#DD9FBD;
+    text-decoration:none;
+}
+a.pinklink:visiteid {
+    color:#DD9FBD;
+    text-decoration:none;
+}
+a.pinklink:hover {
+    color:#19CABC;
+    text-decoration:none;
+}
+a.pinklink:active {
+    color:#DD9FBD;
+    text-decoration:underline;
+    background:#FFFFFF;
+}
+
+a.wheatlink {
+    color:#F5DEB3;
+    text-decoration:none;
+}
+a.wheatlink:visiteid {
+    color:#F5DEB3;
+    text-decoration:none;
+}
+a.wheatlink:hover {
+    color:#19CABC;
+    text-decoration:none;
+}
+a.wheatlink:active {
+    color:#F5DEB3;
+    text-decoration:underline;
+    background:#FFFFFF;
+}
+
+@-webkit-keyframes A
+{
+    0% {  color: #C10066;}
+   10% {  color: #CC0000;}
+   20% {  color: #E63F00;}
+   30% {  color: #EE7700;}
+   40% {  color: #DDAA00;}
+   50% {  color: #EEEE00;}
+   60% {  color: #99DD00;}
+   70% {  color: #66DD00;}
+   80% {  color: #00DDDD;}
+   90% {  color: #0044BB;} 
+  100% {  color: #A500CC;}
+}
+
+#animation_title{
+animation: A 3s ease 0s infinite alternate;
+  -webkit-animation: A 3s ease 0s infinite alternate;
+  }
+    
+
+
+
+html, body, .ui-content {
+    background-color: #333;
+    color: #ddd;
+}
+
+.summary h1,
+.summary h2,
+.summary h3,
+.summary h4,
+.summary h5,
+.summary h6 {
+    color : #00DDDD;    /*這是書本的標題顏色*/
+}
+
+body > .ui-infobar {
+    display: none;
+}
+
+.ui-view-area > .ui-infobar {
+    display: block;
+}
+
+.markdown-body h1,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    color : #FBFBFB;    /*這是標頭顏色*/
+}
+
+.markdown-body h1 {
+    color: #E8A635;
+}
+
+.markdown-body h2 {
+    color: #29E5A9;
+}
+.markdown-body h3 {
+    color: #F5DEB3;    /*這是標頭顏色*/
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+    border-bottom-color: #FBFBFB;    /*這是線的顏色*/
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+    color: #FBFBFB;    /*這是標頭連結的顏色，旁邊小小的那個按鈕的顏色*/
+}
+
+.markdown-body img {
+    background-color: transparent;
+}
+
+.ui-toc-dropdown .nav>.active:focus>a, .ui-toc-dropdown .nav>.active:hover>a, .ui-toc-dropdown .nav>.active>a {
+    color: white;
+    border-left: 2px solid white;
+}
+
+.expand-toggle:hover, 
+.expand-toggle:focus, 
+.back-to-top:hover, 
+.back-to-top:focus, 
+.go-to-bottom:hover, 
+.go-to-bottom:focus {
+    color: white;    /*這是游標移到左上列表時顯示的顏色*/
+}
+
+
+.ui-toc-dropdown {
+    background-color: #333;    /*這是左上列表的底色*/
+}
+
+.ui-toc-label.btn {
+    background-color: #191919;
+    color: white;
+}
+
+.ui-toc-dropdown .nav>li>a:focus, 
+.ui-toc-dropdown .nav>li>a:hover {
+    color: white;
+    border-left: 1px solid white;
+}
+
+.markdown-body blockquote {
+    color: #bcbcbc;
+}
+
+.markdown-body table tr {
+    background-color: #5f5f5f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #4f4f4f;
+}
+
+.markdown-body code,
+.markdown-body tt {
+    color: #ddd;
+    background-color: rgba(230, 230, 230, 0.36);    /*這是 `` 的背景顏色*/
+}
+
+a,
+.open-files-container li.selected a {
+    color: #5EB7E0;    /*這是連結的顏色*/
+}
+
+</style></div>
+    </div>
+    <div class="topbar">
+        <div class="btn ui-summary-action ui-summary-open" aria-hidden="true" title="展開" "=""><span class="visible-xs-inline">展開選單 </span><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+    </div>
+    <div class="container-mask open"></div>
+    <div class="book-container open">
+        <div class="ui-book-spinner unselectable hidden-print" style="display: none;"><div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 50%;"><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-0-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(0deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-1-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(32deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-2-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(65deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-3-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(98deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-4-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(130deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-5-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(163deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-6-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(196deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-7-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(229deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-8-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(261deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-9-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(294deg) translate(30px, 0px); border-radius: 0px;"></div></div><div style="position: absolute; top: -1px; transform: translate3d(0px, 0px, 0px); opacity: 0.25; animation: 0.909091s linear 0s infinite normal none running opacity-60-25-10-11;"><div style="position: absolute; width: 22px; height: 2px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(327deg) translate(30px, 0px); border-radius: 0px;"></div></div></div></div>
+    <iframe id="aHR0cHMlM0ElMkYlMkZoYWNrbWQuaW8lMkYlNDBsZW9uODkwODIwJTJGcnloQ2VlVHdP" src="https://hackmd.io/@leon890820/ryhCeeTwO" width="100%" heigh="100%" frameborder="0" last-active-time="1623608346817" scrolling="auto" loaded="true" style=""></iframe></div>
+
+
+
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-60728495-1"></script>
+<script nonce="">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    let userid = (document.cookie.match('(^|; )userid=([^;]*)')||0)[2];
+    gtag('config', 'UA-60728495-1', {'user_id': userid});
+</script>
+<script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js" crossorigin="anonymous"></script>
+<script nonce="">Sentry.init({ dsn: 'https://73410f1915d84abc8b2dd1f1aabd1c82@sentry.hackmd.dev/4', environment: 'production', integrations: function (intrus) { return intrus.filter(function (itr) { return itr.name !== 'TryCatch' }) } });</script>
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<script src="https://hackmd.io/api/i18n.js"></script>
+
+ <script src="https://assets.hackmd.io/build/font-vendor.ccacc592dd3744f39fee.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.2c0fe9e96c3a5bac87cc.js" defer="defer"></script><script src="https://assets.hackmd.io/build/book-vendor.54a0700f84ff69d9bd2d.js" defer="defer"></script><script src="https://assets.hackmd.io/build/book-common.3bad0e55335d2e225da8.js" defer="defer"></script><script src="https://assets.hackmd.io/build/book.cef866ae08de7cdf9321.js" defer="defer"></script>
+
+
+
+</body></html>
