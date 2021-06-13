@@ -1,293 +1,412 @@
-<div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 class="part in-view" data-startline="6" data-endline="7" id="遊戲引擎框架實作" data-id="遊戲引擎框架實作"><a class="anchor hidden-xs" href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="35" data-size="8">遊戲引擎框架實作</span></h1><ul class="part in-view" data-startline="8" data-endline="9">
-    <li class="" data-startline="8" data-endline="9" data-position="50" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO" target="_blank" rel="noopener"><span data-position="51" data-size="2">目錄</span></a></li>
-    </ul><p class="part in-view" data-startline="10" data-endline="11" data-position="97" data-size="0"><span data-position="97" data-size="59">本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaScript來呈現，若有興趣的人可以一同來學習。</span><br>
-    <span data-position="157" data-size="7">本篇會持續撰寫</span></p><h2 class="part in-view" data-startline="13" data-endline="14" id="碰撞器" data-id="碰撞器"><a class="anchor hidden-xs" href="#碰撞器" title="碰撞器" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="166" data-size="3">碰撞器</span></h2><h3 class="part in-view" data-startline="15" data-endline="15" id="介紹" data-id="介紹"><a class="anchor hidden-xs" href="#介紹" title="介紹" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="178" data-size="2">介紹</span></h3><ul class="part in-view" data-startline="16" data-endline="18">
-    <li class="" data-startline="16" data-endline="16" data-position="183" data-size="0"><a href="https://hackmd.io/@leon890820/rk66UFzDO" target="_blank" rel="noopener"><span data-position="184" data-size="10">1. 分離軸碰撞檢測</span></a></li>
-    <li class="" data-startline="17" data-endline="18" data-position="239" data-size="0"><a href="/6E9tpjt3Rvihx2GRpIzVSQ" target="_blank" rel="noopener"><span data-position="240" data-size="6">2. GJK</span></a></li>
-    </ul><h3 class="part in-view" data-startline="19" data-endline="19" id="數學公式" data-id="數學公式"><a class="anchor hidden-xs" href="#數學公式" title="數學公式" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="278" data-size="4">數學公式</span></h3><ul class="part in-view" data-startline="20" data-endline="22">
-    <li class="" data-startline="20" data-endline="20" data-position="285" data-size="0"><a href="https://hackmd.io/@leon890820/Skp69Qawd" target="_blank" rel="noopener"><span data-position="286" data-size="5">3. 向量</span></a></li>
-    <li class="" data-startline="21" data-endline="22" data-position="336" data-size="0"><a href="/Qy-2kw50SYKxSKDtaxuXWg" target="_blank" rel="noopener"><span data-position="337" data-size="6">4.旋轉矩陣</span></a></li>
-    </ul><h3 class="part in-view" data-startline="23" data-endline="23" id="代碼實現" data-id="代碼實現"><a class="anchor hidden-xs" href="#代碼實現" title="代碼實現" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="375" data-size="4">代碼實現</span></h3><ul class="part in-view" data-startline="24" data-endline="27">
-    <li class="" data-startline="24" data-endline="24" data-position="382" data-size="0"><a href="https://hackmd.io/@leon890820/rykhv2aDd" target="_blank" rel="noopener"><span data-position="383" data-size="6">5.向量實作</span></a></li>
-    <li class="" data-startline="25" data-endline="25" data-position="434" data-size="0"><a href="/PkYwOLVdQGuVnjp2l6eLMQ" target="_blank" rel="noopener"><span data-position="435" data-size="7">6.建立多邊形</span></a></li>
-    <li class="" data-startline="26" data-endline="27" data-position="471" data-size="0"><a href="https://hackmd.io/@leon890820/ByHuTOCDu" target="_blank" rel="noopener"><span data-position="472" data-size="3">附錄A</span></a></li>
-    </ul><h2 class="part in-view" data-startline="28" data-endline="29" id="碰撞優化" data-id="碰撞優化"><a class="anchor hidden-xs" href="#碰撞優化" title="碰撞優化" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="519" data-size="4">碰撞優化</span></h2><h3 class="part in-view" data-startline="30" data-endline="30" id="四叉數" data-id="四叉數"><a class="anchor hidden-xs" href="#四叉數" title="四叉數" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="532" data-size="3">四叉數</span></h3><ul class="part in-view" data-startline="31" data-endline="32">
-    <li class="" data-startline="31" data-endline="32" data-position="538" data-size="0"><a href="/twmLTqU_Sz2naU7z4IS73w" target="_blank" rel="noopener"><span data-position="539" data-size="4">1.簡介</span></a></li>
-    </ul><h2 class="part in-view" data-startline="33" data-endline="34" id="光線追蹤" data-id="光線追蹤"><a class="anchor hidden-xs" href="#光線追蹤" title="光線追蹤" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="571" data-size="4">光線追蹤</span></h2><ul class="part in-view" data-startline="36" data-endline="39">
-    <li class="" data-startline="36" data-endline="36" data-position="583" data-size="0"><a href="/TSowyDXOSZyWo5WlHQqYHw" target="_blank" rel="noopener"><span data-position="584" data-size="5">1.像素畫</span></a></li>
-    <li class="" data-startline="37" data-endline="39" data-position="618" data-size="0"><a href="/93KWRQucSeiioLQIzdwOzw" target="_blank" rel="noopener"><span data-position="619" data-size="12">2.Vec3 class</span></a></li>
-    </ul><style>
-    .green {
-        color:#29E5A9;
-    }
-    
-    .yellow {
-        color:#F1EF78;
-    }
-    
-    .brown {
-        color:#990000;
-    }
-    
-    .pink {
-        color:#DD9FBD;
-    }
-    
-    .red {
-        color:#E71B18 ;
-    }
-        
-    .orange {
-        color:#E8A635;
-    }
-        
-    .purple {
-        color:#AC9FDD;        
-    }
-    
-    .blue {
-        color:#20DEE5;
-    }
-    
-    .ivory {
-        color:#FFFFF0;
-    }
-    
-    .pearl {
-        color:#EAE0C8;
-    }
-    
-    .beige {
-        color:#F5F5DC;
-    }
-    
-    .cornsilk {
-        color:#FFF8DC;
-    }
-    
-    .gainsboro {
-        color:#DCDCDC;
-    }
-    
-    .light_grey {
-        color:#D3D3D3;
-    }
-    
-    .silver {
-        color:#C0C0C0;
-    }
-    
-    .dark_grey {
-        color:#A9A9A9;
-    }
-    
-    .wheat {
-        color:#F5DEB3;
-    }
-    
-    .burlywood {
-        color:#DEB887;
-    }
-    
-    .tan {
-        color:#D2B48C;
-    }
-    
-    /* https:\//english.cool\/colors\/ 這裡很多顏色，把反斜線去掉 */
-    
-    a.redlink { 
-        color:#DB1859;
-    }
-        
-    a.redlink:link {
-        color:#DB1859;
-        text-decoration:none;
-    }
-        
-    
-    a.redlink:visiteid {
-        color:#DB1859;
-        text-decoration:none;
-    }
-    
-    a.redlink:hover {
-        color:#19CABC;
-        text-decoration:none;
-    }
-    
-    a.redlink:active {
-        color:#DB1859;
-        text-decoration:underline;
-        background:#FFFFFF;
-    }
-    
-    a.pinklink {
-        color:#DD9FBD;
-        text-decoration:none;
-    }
-    a.pinklink:visiteid {
-        color:#DD9FBD;
-        text-decoration:none;
-    }
-    a.pinklink:hover {
-        color:#19CABC;
-        text-decoration:none;
-    }
-    a.pinklink:active {
-        color:#DD9FBD;
-        text-decoration:underline;
-        background:#FFFFFF;
-    }
-    
-    a.wheatlink {
-        color:#F5DEB3;
-        text-decoration:none;
-    }
-    a.wheatlink:visiteid {
-        color:#F5DEB3;
-        text-decoration:none;
-    }
-    a.wheatlink:hover {
-        color:#19CABC;
-        text-decoration:none;
-    }
-    a.wheatlink:active {
-        color:#F5DEB3;
-        text-decoration:underline;
-        background:#FFFFFF;
-    }
-    
-    @-webkit-keyframes A
-    {
-        0% {  color: #C10066;}
-       10% {  color: #CC0000;}
-       20% {  color: #E63F00;}
-       30% {  color: #EE7700;}
-       40% {  color: #DDAA00;}
-       50% {  color: #EEEE00;}
-       60% {  color: #99DD00;}
-       70% {  color: #66DD00;}
-       80% {  color: #00DDDD;}
-       90% {  color: #0044BB;} 
-      100% {  color: #A500CC;}
-    }
-    
-    #animation_title{
-    animation: A 3s ease 0s infinite alternate;
-      -webkit-animation: A 3s ease 0s infinite alternate;
-      }
-        
-    </style><style>
-    
-    html, body, .ui-content {
-        background-color: #333;
-        color: #ddd;
-    }
-    
-    .summary h1,
-    .summary h2,
-    .summary h3,
-    .summary h4,
-    .summary h5,
-    .summary h6 {
-        color : #00DDDD;    /*這是書本的標題顏色*/
-    }
-    
-    body > .ui-infobar {
-        display: none;
-    }
-    
-    .ui-view-area > .ui-infobar {
-        display: block;
-    }
-    
-    .markdown-body h1,
-    .markdown-body h4,
-    .markdown-body h5,
-    .markdown-body h6 {
-        color : #FBFBFB;    /*這是標頭顏色*/
-    }
-    
-    .markdown-body h1 {
-        color: #E8A635;
-    }
-    
-    .markdown-body h2 {
-        color: #29E5A9;
-    }
-    .markdown-body h3 {
-        color: #F5DEB3;    /*這是標頭顏色*/
-    }
-    
-    .markdown-body h1,
-    .markdown-body h2 {
-        border-bottom-color: #FBFBFB;    /*這是線的顏色*/
-    }
-    
-    .markdown-body h1 .octicon-link,
-    .markdown-body h2 .octicon-link,
-    .markdown-body h3 .octicon-link,
-    .markdown-body h4 .octicon-link,
-    .markdown-body h5 .octicon-link,
-    .markdown-body h6 .octicon-link {
-        color: #FBFBFB;    /*這是標頭連結的顏色，旁邊小小的那個按鈕的顏色*/
-    }
-    
-    .markdown-body img {
-        background-color: transparent;
-    }
-    
-    .ui-toc-dropdown .nav>.active:focus>a, .ui-toc-dropdown .nav>.active:hover>a, .ui-toc-dropdown .nav>.active>a {
-        color: white;
-        border-left: 2px solid white;
-    }
-    
-    .expand-toggle:hover, 
-    .expand-toggle:focus, 
-    .back-to-top:hover, 
-    .back-to-top:focus, 
-    .go-to-bottom:hover, 
-    .go-to-bottom:focus {
-        color: white;    /*這是游標移到左上列表時顯示的顏色*/
-    }
-    
-    
-    .ui-toc-dropdown {
-        background-color: #333;    /*這是左上列表的底色*/
-    }
-    
-    .ui-toc-label.btn {
-        background-color: #191919;
-        color: white;
-    }
-    
-    .ui-toc-dropdown .nav>li>a:focus, 
-    .ui-toc-dropdown .nav>li>a:hover {
-        color: white;
-        border-left: 1px solid white;
-    }
-    
-    .markdown-body blockquote {
-        color: #bcbcbc;
-    }
-    
-    .markdown-body table tr {
-        background-color: #5f5f5f;
-    }
-    
-    .markdown-body table tr:nth-child(2n) {
-        background-color: #4f4f4f;
-    }
-    
-    .markdown-body code,
-    .markdown-body tt {
-        color: #ddd;
-        background-color: rgba(230, 230, 230, 0.36);    /*這是 `` 的背景顏色*/
-    }
-    
-    a,
-    .open-files-container li.selected a {
-        color: #5EB7E0;    /*這是連結的顏色*/
-    }
-    
-    </style><div dir="ltr" class="resize-sensor in-view" style="pointer-events: none; position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 768px; height: 1007px;"></div></div><div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
+<div class="ui-view-area">
+    <div class="ui-infobar container-fluid unselectable hidden-print comment-enabled" style="visibility: visible;">
+        <small class="pull-left mt-1/2">
+            <span class="ui-owner dn" style="display: none;">
+                 <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
+                &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
+            </span>
+
+            <span class="ui-owner-team dn" style="display: none;">
+                 <a class="ui-user-icon small" target="_blank"></a>
+                &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
+            </span>
+
+            <span class="ui-lastchangeuser dn" style="display: inline;">
+                 <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
+                <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
+            </span>
+
+            <span class="ui-no-lastchangeuser dn" style="display: none;">
+                 <i class="fa fa-clock-o fa-fw" style="width: 18px;"></i>
+                <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
+            </span>
+
+            <span class="ui-more-info" data-toggle="popover" data-original-title="" title="">
+                 <i class="fa fa-info-circle" aria-hidden="true"></i>
+
+                <div class="more-info-raw dn">
+                    <span class="ui-published-note note-status-row db">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        公開筆記
+                    </span>
+
+                    <span class="ui-connectedGithub note-status-row dn">
+                        <i class="fa fa-20 ui-connectedGithubIcon fa-github"></i>
+
+                        <span>與 GitHub 同步</span>
+
+                        <br>
+
+                        <a class="file-path" target="_blank"></a>
+                    </span>
+                </div>
+            </span>
+        </small>
+
+        <span class="pull-right">
+            
+                <span class="community-button ui-like" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="讚賞"><i class="fa fa-fw"></i><span class="text hidden-xs">讚賞</span><span class="count"></span></span>
+                <span class="community-button ui-bookmark" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="收藏"><i class="fa fa-fw"></i><span class="text hidden-xs"><span class="bookmark-label">收藏</span><span class="bookmarked-label">已收藏</span></span></span>
+            
+            
+            <span class="ui-notification dropdown pull-right is-watch" style="">
+                <span id="notificationLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="ui-notification-status community-button" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="訂閱">
+                        <i class="fa fa-fw fa-bell"></i><span class="text hidden-xs">已訂閱<i class="fa fa-fw fa-angle-down"></i><i class="fa fa-fw fa-angle-up"></i></span>
+                    </div>
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="notificationLabel">
+                    <li class="ui-notification-watch notification-menu-item is-checked"><i class="fa fa-check fa-fw"></i><i class="fa fa-bell fa-fw"></i><div class="info"><div class="title">所有通知</div><div class="description">當有任何變更時將會收到通知</div></div></li>
+                    <li class="ui-notification-mention notification-menu-item"><i class="fa fa-check fa-fw"></i><i class="fa fa-at fa-fw"></i><div class="info"><div class="title">提及我</div><div class="description">當有人提及我時才會收到通知</div></div></li>
+                    <li class="divider"></li>
+                    <!--
+                        <li class="ui-notification-list notification-menu-item"><span><a href="#"><i class="fa fa-list-ul fa-fw"></i>我的訂閱列表</a></span></li>
+                    -->
+                    <li class="ui-notification-unsubscribe notification-menu-item"><i class="fa fa-bell-slash-o fa-fw"></i>取消訂閱</li>
+                </ul>
+                <span class="ui-notification-subscribe community-button"><i class="fa fa-fw fa-bell-o"></i><span class="text hidden-xs">訂閱</span></span>
+            </span>
+            
+            
+                <div class="visible-xs" style="margin-top: 10px;"></div>
+            
+        </span>
+        <div class="ui-comment-app" id="hackmd-app" style="right: -45px; width: 45px;">
+            <div id="comment-app"><div class="open-comments"><div><button class="ui-open-comments btn btn-default"><i class="fa fa-commenting" aria-hidden="true"></i><span class="text">0 篇留言</span></button></div><div style="display: none;"><div class="comment-settings" id="comment-settings"><img src="https://hackmd.io/comments-settings.svg" style="margin-right: 5px;"><div>留言設定</div></div></div></div><div class="comments-scroller"><div class="comments-containers"></div></div></div>
+        </div>
+    </div>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 class="part in-view" data-startline="6" data-endline="7" id="遊戲引擎框架實作" data-id="遊戲引擎框架實作"><a class="anchor hidden-xs" href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="35" data-size="8">遊戲引擎框架實作</span></h1><ul class="part in-view" data-startline="8" data-endline="9">
+<li class="" data-startline="8" data-endline="9" data-position="50" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO" target="_blank" rel="noopener"><span data-position="51" data-size="2">目錄</span></a></li>
+</ul><p class="part in-view" data-startline="10" data-endline="11" data-position="97" data-size="0"><span data-position="97" data-size="59">本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaScript來呈現，若有興趣的人可以一同來學習。</span><br>
+<span data-position="157" data-size="7">本篇會持續撰寫</span></p><h2 class="part in-view" data-startline="13" data-endline="14" id="碰撞器" data-id="碰撞器"><a class="anchor hidden-xs" href="#碰撞器" title="碰撞器" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="166" data-size="3">碰撞器</span></h2><h3 class="part in-view" data-startline="15" data-endline="15" id="介紹" data-id="介紹"><a class="anchor hidden-xs" href="#介紹" title="介紹" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="178" data-size="2">介紹</span></h3><ul class="part in-view" data-startline="16" data-endline="18">
+<li class="" data-startline="16" data-endline="16" data-position="183" data-size="0"><a href="https://hackmd.io/@leon890820/rk66UFzDO" target="_blank" rel="noopener"><span data-position="184" data-size="10">1. 分離軸碰撞檢測</span></a></li>
+<li class="" data-startline="17" data-endline="18" data-position="239" data-size="0"><a href="/6E9tpjt3Rvihx2GRpIzVSQ" target="_blank" rel="noopener"><span data-position="240" data-size="6">2. GJK</span></a></li>
+</ul><h3 class="part in-view" data-startline="19" data-endline="19" id="數學公式" data-id="數學公式"><a class="anchor hidden-xs" href="#數學公式" title="數學公式" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="278" data-size="4">數學公式</span></h3><ul class="part in-view" data-startline="20" data-endline="22">
+<li class="" data-startline="20" data-endline="20" data-position="285" data-size="0"><a href="https://hackmd.io/@leon890820/Skp69Qawd" target="_blank" rel="noopener"><span data-position="286" data-size="5">3. 向量</span></a></li>
+<li class="" data-startline="21" data-endline="22" data-position="336" data-size="0"><a href="/Qy-2kw50SYKxSKDtaxuXWg" target="_blank" rel="noopener"><span data-position="337" data-size="6">4.旋轉矩陣</span></a></li>
+</ul><h3 class="part in-view" data-startline="23" data-endline="23" id="代碼實現" data-id="代碼實現"><a class="anchor hidden-xs" href="#代碼實現" title="代碼實現" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="375" data-size="4">代碼實現</span></h3><ul class="part in-view" data-startline="24" data-endline="27">
+<li class="" data-startline="24" data-endline="24" data-position="382" data-size="0"><a href="https://hackmd.io/@leon890820/rykhv2aDd" target="_blank" rel="noopener"><span data-position="383" data-size="6">5.向量實作</span></a></li>
+<li class="" data-startline="25" data-endline="25" data-position="434" data-size="0"><a href="/PkYwOLVdQGuVnjp2l6eLMQ" target="_blank" rel="noopener"><span data-position="435" data-size="7">6.建立多邊形</span></a></li>
+<li class="" data-startline="26" data-endline="27" data-position="471" data-size="0"><a href="https://hackmd.io/@leon890820/ByHuTOCDu" target="_blank" rel="noopener"><span data-position="472" data-size="3">附錄A</span></a></li>
+</ul><h2 class="part in-view" data-startline="28" data-endline="29" id="碰撞優化" data-id="碰撞優化"><a class="anchor hidden-xs" href="#碰撞優化" title="碰撞優化" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="519" data-size="4">碰撞優化</span></h2><h3 class="part in-view" data-startline="30" data-endline="30" id="四叉數" data-id="四叉數"><a class="anchor hidden-xs" href="#四叉數" title="四叉數" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="532" data-size="3">四叉數</span></h3><ul class="part in-view" data-startline="31" data-endline="32">
+<li class="" data-startline="31" data-endline="32" data-position="538" data-size="0"><a href="/twmLTqU_Sz2naU7z4IS73w" target="_blank" rel="noopener"><span data-position="539" data-size="4">1.簡介</span></a></li>
+</ul><h2 class="part in-view" data-startline="33" data-endline="34" id="光線追蹤" data-id="光線追蹤"><a class="anchor hidden-xs" href="#光線追蹤" title="光線追蹤" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="571" data-size="4">光線追蹤</span></h2><ul class="part in-view" data-startline="36" data-endline="39">
+<li class="" data-startline="36" data-endline="36" data-position="583" data-size="0"><a href="/TSowyDXOSZyWo5WlHQqYHw" target="_blank" rel="noopener"><span data-position="584" data-size="5">1.像素畫</span></a></li>
+<li class="" data-startline="37" data-endline="39" data-position="618" data-size="0"><a href="/93KWRQucSeiioLQIzdwOzw" target="_blank" rel="noopener"><span data-position="619" data-size="12">2.Vec3 class</span></a></li>
+</ul><style>
+.green {
+color:#29E5A9;
+}
+
+.yellow {
+color:#F1EF78;
+}
+
+.brown {
+color:#990000;
+}
+
+.pink {
+color:#DD9FBD;
+}
+
+.red {
+color:#E71B18 ;
+}
+
+.orange {
+color:#E8A635;
+}
+
+.purple {
+color:#AC9FDD;        
+}
+
+.blue {
+color:#20DEE5;
+}
+
+.ivory {
+color:#FFFFF0;
+}
+
+.pearl {
+color:#EAE0C8;
+}
+
+.beige {
+color:#F5F5DC;
+}
+
+.cornsilk {
+color:#FFF8DC;
+}
+
+.gainsboro {
+color:#DCDCDC;
+}
+
+.light_grey {
+color:#D3D3D3;
+}
+
+.silver {
+color:#C0C0C0;
+}
+
+.dark_grey {
+color:#A9A9A9;
+}
+
+.wheat {
+color:#F5DEB3;
+}
+
+.burlywood {
+color:#DEB887;
+}
+
+.tan {
+color:#D2B48C;
+}
+
+/* https:\//english.cool\/colors\/ 這裡很多顏色，把反斜線去掉 */
+
+a.redlink { 
+color:#DB1859;
+}
+
+a.redlink:link {
+color:#DB1859;
+text-decoration:none;
+}
+
+
+a.redlink:visiteid {
+color:#DB1859;
+text-decoration:none;
+}
+
+a.redlink:hover {
+color:#19CABC;
+text-decoration:none;
+}
+
+a.redlink:active {
+color:#DB1859;
+text-decoration:underline;
+background:#FFFFFF;
+}
+
+a.pinklink {
+color:#DD9FBD;
+text-decoration:none;
+}
+a.pinklink:visiteid {
+color:#DD9FBD;
+text-decoration:none;
+}
+a.pinklink:hover {
+color:#19CABC;
+text-decoration:none;
+}
+a.pinklink:active {
+color:#DD9FBD;
+text-decoration:underline;
+background:#FFFFFF;
+}
+
+a.wheatlink {
+color:#F5DEB3;
+text-decoration:none;
+}
+a.wheatlink:visiteid {
+color:#F5DEB3;
+text-decoration:none;
+}
+a.wheatlink:hover {
+color:#19CABC;
+text-decoration:none;
+}
+a.wheatlink:active {
+color:#F5DEB3;
+text-decoration:underline;
+background:#FFFFFF;
+}
+
+@-webkit-keyframes A
+{
+0% {  color: #C10066;}
+10% {  color: #CC0000;}
+20% {  color: #E63F00;}
+30% {  color: #EE7700;}
+40% {  color: #DDAA00;}
+50% {  color: #EEEE00;}
+60% {  color: #99DD00;}
+70% {  color: #66DD00;}
+80% {  color: #00DDDD;}
+90% {  color: #0044BB;} 
+100% {  color: #A500CC;}
+}
+
+#animation_title{
+animation: A 3s ease 0s infinite alternate;
+-webkit-animation: A 3s ease 0s infinite alternate;
+}
+
+</style><style>
+
+html, body, .ui-content {
+background-color: #333;
+color: #ddd;
+}
+
+.summary h1,
+.summary h2,
+.summary h3,
+.summary h4,
+.summary h5,
+.summary h6 {
+color : #00DDDD;    /*這是書本的標題顏色*/
+}
+
+body > .ui-infobar {
+display: none;
+}
+
+.ui-view-area > .ui-infobar {
+display: block;
+}
+
+.markdown-body h1,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+color : #FBFBFB;    /*這是標頭顏色*/
+}
+
+.markdown-body h1 {
+color: #E8A635;
+}
+
+.markdown-body h2 {
+color: #29E5A9;
+}
+.markdown-body h3 {
+color: #F5DEB3;    /*這是標頭顏色*/
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+border-bottom-color: #FBFBFB;    /*這是線的顏色*/
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+color: #FBFBFB;    /*這是標頭連結的顏色，旁邊小小的那個按鈕的顏色*/
+}
+
+.markdown-body img {
+background-color: transparent;
+}
+
+.ui-toc-dropdown .nav>.active:focus>a, .ui-toc-dropdown .nav>.active:hover>a, .ui-toc-dropdown .nav>.active>a {
+color: white;
+border-left: 2px solid white;
+}
+
+.expand-toggle:hover, 
+.expand-toggle:focus, 
+.back-to-top:hover, 
+.back-to-top:focus, 
+.go-to-bottom:hover, 
+.go-to-bottom:focus {
+color: white;    /*這是游標移到左上列表時顯示的顏色*/
+}
+
+
+.ui-toc-dropdown {
+background-color: #333;    /*這是左上列表的底色*/
+}
+
+.ui-toc-label.btn {
+background-color: #191919;
+color: white;
+}
+
+.ui-toc-dropdown .nav>li>a:focus, 
+.ui-toc-dropdown .nav>li>a:hover {
+color: white;
+border-left: 1px solid white;
+}
+
+.markdown-body blockquote {
+color: #bcbcbc;
+}
+
+.markdown-body table tr {
+background-color: #5f5f5f;
+}
+
+.markdown-body table tr:nth-child(2n) {
+background-color: #4f4f4f;
+}
+
+.markdown-body code,
+.markdown-body tt {
+color: #ddd;
+background-color: rgba(230, 230, 230, 0.36);    /*這是 `` 的背景顏色*/
+}
+
+a,
+.open-files-container li.selected a {
+color: #5EB7E0;    /*這是連結的顏色*/
+}
+
+</style></div>
+    <div class="ui-toc dropup unselectable hidden-print scrollspy-view" style="display: none; left: 259.641px;">
+        <div class="pull-left dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="目錄">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav">
+<li class="active"><a href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll="">遊戲引擎框架實作</a><ul class="nav">
+<li><a href="#碰撞器" title="碰撞器" smoothhashscroll="">碰撞器</a><ul class="nav">
+<li><a href="#介紹" title="介紹" smoothhashscroll="">介紹</a></li>
+<li><a href="#數學公式" title="數學公式" smoothhashscroll="">數學公式</a></li>
+<li><a href="#代碼實現" title="代碼實現" smoothhashscroll="">代碼實現</a></li>
+</ul>
+</li>
+<li><a href="#碰撞優化" title="碰撞優化" smoothhashscroll="">碰撞優化</a><ul class="nav">
+<li><a href="#四叉數" title="四叉數" smoothhashscroll="">四叉數</a></li>
+</ul>
+</li>
+<li><a href="#光線追蹤" title="光線追蹤" smoothhashscroll="">光線追蹤</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div></ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print scrollspy-body" data-spy="affix" style="top: 103px; left: 90.953px; width: 296px;"><div class="toc"><ul class="nav">
+<li class="active"><a href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll="">遊戲引擎框架實作</a><ul class="nav">
+<li><a href="#碰撞器" title="碰撞器" smoothhashscroll="">碰撞器</a><ul class="nav">
+<li><a href="#介紹" title="介紹" smoothhashscroll="">介紹</a></li>
+<li><a href="#數學公式" title="數學公式" smoothhashscroll="">數學公式</a></li>
+<li><a href="#代碼實現" title="代碼實現" smoothhashscroll="">代碼實現</a></li>
+</ul>
+</li>
+<li><a href="#碰撞優化" title="碰撞優化" smoothhashscroll="">碰撞優化</a><ul class="nav">
+<li><a href="#四叉數" title="四叉數" smoothhashscroll="">四叉數</a></li>
+</ul>
+</li>
+<li><a href="#光線追蹤" title="光線追蹤" smoothhashscroll="">光線追蹤</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div></div>
+</div>
