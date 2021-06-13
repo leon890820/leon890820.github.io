@@ -1,87 +1,91 @@
-<div class="ui-view-area">
-    <div class="ui-infobar container-fluid unselectable hidden-print comment-enabled" style="visibility: visible;">
-        <small class="pull-left mt-1/2">
-            <span class="ui-owner dn" style="display: none;">
-                 <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
-                &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
-            </span>
+<div class="row ui-content" style="">
+    <div class="ui-edit-area unselectable ui-resizable" style="display: none;">
+        <textarea id="textit" style="display: none;"></textarea><div><div class="CodeMirror cm-s-one-dark CodeMirror-wrap CodeMirror-overlayscroll" style="height: 937px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-overlayscroll-horizontal" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-overlayscroll-vertical" cm-not-content="true" style="display: block; bottom: 0px;"><div style="height: 10px; top: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" style="height: 937px;"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 10px; padding-bottom: 0px;"><div style="position: relative;"><div class="CodeMirror-lines" role="presentation" style="padding-bottom: 915px;"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre class="CodeMirror-line-like"><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div class="CodeMirror-other-cursors"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 0px;">&nbsp;</div></div><div class="cursor-menu"></div><div class="CodeMirror-code" role="presentation"></div></div></div></div></div><div style="position: absolute; height: 50px; width: 1px; border-bottom: 0px solid transparent;"></div><div class="CodeMirror-gutters" style="left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div><div class="CodeMirror-gutter authorship-gutters"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div><div class="container-thin template-menu" style="display: none;">  <div class="github-signin-sync clearfix" style="display: none;">    <p class="menu-tip" data-i18n="github.sync.empty-note.sign-in-tip" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">登入後可從 GitHub 匯入並同步檔案：</p>    <button class="btn btn-default menu-item ui-signin" data-toggle="modal" data-target=".signin-modal"><span data-i18n="github.sync.empty-note.sign-in" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">註冊並登入 HackMD</span></button>  </div>  <div class="github-sync clearfix" style="">    <p class="menu-tip" data-i18n="github.sync.empty-note.sync-tip" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">從 GitHub 匯入並同步檔案：</p>    <button class="btn btn-default menu-item ui-github-pull"><i class="fa fa-arrow-down fa-fw" style="padding-top:4px; margin-right: 10px;"></i><span data-i18n="github.sync.pull-github" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">從 GitHub 拉取</span></button>    <button class="btn btn-default menu-item ui-github-push"><i class="fa fa-arrow-up fa-fw" style="padding-top:4px; margin-right: 10px;"></i><span data-i18n="github.sync.push-github" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">推送至 GitHub</span></button>  </div>  <p class="menu-tip" data-i18n="template.menu-tip" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">套用範本：</p>  <span class="ui-template-menu-list"><button class="btn btn-default menu-item" data-template="0f4505d1-db3c-4abf-94ad-471a14425f26" data-template-type="default">Talk slide</button><button class="btn btn-default menu-item" data-template="cbc6d1e3-0c5f-46e3-b93e-f6d85be3c722" data-template-type="default">Try it</button><button class="btn btn-default menu-item" data-template="f2a48ddb-2038-4222-bbc9-0db215bd6b36" data-template-type="default">Meeting minute</button></span>  <button class="btn btn-default menu-item more-template ui-more-template" tabindex="-1" data-toggle="modal" data-target="#templateModal"><span data-i18n="template.more-templates" data-i18n-options="{&quot;provider&quot;:&quot;GitHub&quot;}">更多範本</span>    <i class="fa fa-angle-right fa-fw pull-right" style="padding-top:4px;"></i></button></div></div>
+    <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: none;"><button class="btn btn-lg btn-default ui-sync-toggle" title="切換同步捲動" data-i18n="[title]editor.toggle-sync-scrolling" style="display: none;"><i class="fa fa-link fa-fw"></i></button></div></div>
+    <div class="ui-view-area">
+        <div class="ui-infobar container-fluid unselectable hidden-print comment-enabled" style="visibility: visible;">
+            <small class="pull-left mt-1/2">
+                <span class="ui-owner dn" style="display: none;">
+                     <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
+                    &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
+                </span>
 
-            <span class="ui-owner-team dn" style="display: none;">
-                 <a class="ui-user-icon small" target="_blank"></a>
-                &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
-            </span>
+                <span class="ui-owner-team dn" style="display: none;">
+                     <a class="ui-user-icon small" target="_blank"></a>
+                    &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
+                </span>
 
-            <span class="ui-lastchangeuser dn" style="display: inline;">
-                 <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
-                <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
-            </span>
+                <span class="ui-lastchangeuser dn" style="display: inline;">
+                     <a class="ui-user-icon small user-card-popover" target="_blank" style="background-image:url(https://avatars.githubusercontent.com/u/52538091?s=96)" href="https://hackmd.io/@leon890820" data-toggle="popover" data-original-title="" title=""></a>
+                    <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
+                </span>
 
-            <span class="ui-no-lastchangeuser dn" style="display: none;">
-                 <i class="fa fa-clock-o fa-fw" style="width: 18px;"></i>
-                <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
-            </span>
+                <span class="ui-no-lastchangeuser dn" style="display: none;">
+                     <i class="fa fa-clock-o fa-fw" style="width: 18px;"></i>
+                    <span class="text-uppercase ui-status-lastchange" title="2021年5月25日星期二 19:40">變更於 19 天前</span>
+                </span>
 
-            <span class="ui-more-info" data-toggle="popover" data-original-title="" title="">
-                 <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <span class="ui-more-info" data-toggle="popover" data-original-title="" title="">
+                     <i class="fa fa-info-circle" aria-hidden="true"></i>
 
-                <div class="more-info-raw dn">
-                    <span class="ui-published-note note-status-row db">
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                        公開筆記
-                    </span>
+                    <div class="more-info-raw dn">
+                        <span class="ui-published-note note-status-row db">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            公開筆記
+                        </span>
 
-                    <span class="ui-connectedGithub note-status-row dn">
-                        <i class="fa fa-20 ui-connectedGithubIcon fa-github"></i>
+                        <span class="ui-connectedGithub note-status-row dn">
+                            <i class="fa fa-20 ui-connectedGithubIcon fa-github"></i>
 
-                        <span>與 GitHub 同步</span>
+                            <span>與 GitHub 同步</span>
 
-                        <br>
+                            <br>
 
-                        <a class="file-path" target="_blank"></a>
-                    </span>
-                </div>
-            </span>
-        </small>
-
-        <span class="pull-right">
-            
-                <span class="community-button ui-like" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="讚賞"><i class="fa fa-fw"></i><span class="text hidden-xs">讚賞</span><span class="count"></span></span>
-                <span class="community-button ui-bookmark" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="收藏"><i class="fa fa-fw"></i><span class="text hidden-xs"><span class="bookmark-label">收藏</span><span class="bookmarked-label">已收藏</span></span></span>
-            
-            
-            <span class="ui-notification dropdown pull-right is-watch" style="">
-                <span id="notificationLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <div class="ui-notification-status community-button" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="訂閱">
-                        <i class="fa fa-fw fa-bell"></i><span class="text hidden-xs">已訂閱<i class="fa fa-fw fa-angle-down"></i><i class="fa fa-fw fa-angle-up"></i></span>
+                            <a class="file-path" target="_blank"></a>
+                        </span>
                     </div>
                 </span>
-                <ul class="dropdown-menu" aria-labelledby="notificationLabel">
-                    <li class="ui-notification-watch notification-menu-item is-checked"><i class="fa fa-check fa-fw"></i><i class="fa fa-bell fa-fw"></i><div class="info"><div class="title">所有通知</div><div class="description">當有任何變更時將會收到通知</div></div></li>
-                    <li class="ui-notification-mention notification-menu-item"><i class="fa fa-check fa-fw"></i><i class="fa fa-at fa-fw"></i><div class="info"><div class="title">提及我</div><div class="description">當有人提及我時才會收到通知</div></div></li>
-                    <li class="divider"></li>
-                    <!--
-                        <li class="ui-notification-list notification-menu-item"><span><a href="#"><i class="fa fa-list-ul fa-fw"></i>我的訂閱列表</a></span></li>
-                    -->
-                    <li class="ui-notification-unsubscribe notification-menu-item"><i class="fa fa-bell-slash-o fa-fw"></i>取消訂閱</li>
-                </ul>
-                <span class="ui-notification-subscribe community-button"><i class="fa fa-fw fa-bell-o"></i><span class="text hidden-xs">訂閱</span></span>
+            </small>
+
+            <span class="pull-right">
+                
+                    <span class="community-button ui-like" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="讚賞"><i class="fa fa-fw"></i><span class="text hidden-xs">讚賞</span><span class="count"></span></span>
+                    <span class="community-button ui-bookmark" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="收藏"><i class="fa fa-fw"></i><span class="text hidden-xs"><span class="bookmark-label">收藏</span><span class="bookmarked-label">已收藏</span></span></span>
+                
+                
+                <span class="ui-notification dropdown pull-right is-watch" style="">
+                    <span id="notificationLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <div class="ui-notification-status community-button" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="訂閱">
+                            <i class="fa fa-fw fa-bell"></i><span class="text hidden-xs">已訂閱<i class="fa fa-fw fa-angle-down"></i><i class="fa fa-fw fa-angle-up"></i></span>
+                        </div>
+                    </span>
+                    <ul class="dropdown-menu" aria-labelledby="notificationLabel">
+                        <li class="ui-notification-watch notification-menu-item is-checked"><i class="fa fa-check fa-fw"></i><i class="fa fa-bell fa-fw"></i><div class="info"><div class="title">所有通知</div><div class="description">當有任何變更時將會收到通知</div></div></li>
+                        <li class="ui-notification-mention notification-menu-item"><i class="fa fa-check fa-fw"></i><i class="fa fa-at fa-fw"></i><div class="info"><div class="title">提及我</div><div class="description">當有人提及我時才會收到通知</div></div></li>
+                        <li class="divider"></li>
+                        <!--
+                            <li class="ui-notification-list notification-menu-item"><span><a href="#"><i class="fa fa-list-ul fa-fw"></i>我的訂閱列表</a></span></li>
+                        -->
+                        <li class="ui-notification-unsubscribe notification-menu-item"><i class="fa fa-bell-slash-o fa-fw"></i>取消訂閱</li>
+                    </ul>
+                    <span class="ui-notification-subscribe community-button"><i class="fa fa-fw fa-bell-o"></i><span class="text hidden-xs">訂閱</span></span>
+                </span>
+                
+                
+                    <div class="visible-xs" style="margin-top: 10px;"></div>
+                
             </span>
-            
-            
-                <div class="visible-xs" style="margin-top: 10px;"></div>
-            
-        </span>
-        <div class="ui-comment-app" id="hackmd-app" style="right: -45px; width: 45px;">
-            <div id="comment-app"><div class="open-comments"><div><button class="ui-open-comments btn btn-default"><i class="fa fa-commenting" aria-hidden="true"></i><span class="text">0 篇留言</span></button></div><div style="display: none;"><div class="comment-settings" id="comment-settings"><img src="https://hackmd.io/comments-settings.svg" style="margin-right: 5px;"><div>留言設定</div></div></div></div><div class="comments-scroller"><div class="comments-containers"></div></div></div>
+            <div class="ui-comment-app" id="hackmd-app" style="right: -45px; width: 45px;">
+                <div id="comment-app"><div class="open-comments"><div><button class="ui-open-comments btn btn-default"><i class="fa fa-commenting" aria-hidden="true"></i><span class="text">0 篇留言</span></button></div><div style="display: none;"><div class="comment-settings" id="comment-settings"><img src="https://hackmd.io/comments-settings.svg" style="margin-right: 5px;"><div>留言設定</div></div></div></div><div class="comments-scroller"><div class="comments-containers"></div></div></div>
+            </div>
         </div>
-    </div>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 class="part in-view" data-startline="6" data-endline="7" id="遊戲引擎框架實作" data-id="遊戲引擎框架實作"><a class="anchor hidden-xs" href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="35" data-size="8">遊戲引擎框架實作</span></h1><ul class="part in-view" data-startline="8" data-endline="9">
+        <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 class="part in-view" data-startline="6" data-endline="7" id="遊戲引擎框架實作" data-id="遊戲引擎框架實作"><a class="anchor hidden-xs" href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="35" data-size="8">遊戲引擎框架實作</span></h1><ul class="part in-view" data-startline="8" data-endline="9">
 <li class="" data-startline="8" data-endline="9" data-position="50" data-size="0"><a href="https://hackmd.io/@leon890820/ryhCeeTwO" target="_blank" rel="noopener"><span data-position="51" data-size="2">目錄</span></a></li>
 </ul><p class="part in-view" data-startline="10" data-endline="11" data-position="97" data-size="0"><span data-position="97" data-size="59">本文案適合有程式基礎能力，數學及物理基礎的人使用，實作部分會用JavaScript來呈現，若有興趣的人可以一同來學習。</span><br>
 <span data-position="157" data-size="7">本篇會持續撰寫</span></p><h2 class="part in-view" data-startline="13" data-endline="14" id="碰撞器" data-id="碰撞器"><a class="anchor hidden-xs" href="#碰撞器" title="碰撞器" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="166" data-size="3">碰撞器</span></h2><h3 class="part in-view" data-startline="15" data-endline="15" id="介紹" data-id="介紹"><a class="anchor hidden-xs" href="#介紹" title="介紹" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="178" data-size="2">介紹</span></h3><ul class="part in-view" data-startline="16" data-endline="18">
 <li class="" data-startline="16" data-endline="16" data-position="183" data-size="0"><a href="https://hackmd.io/@leon890820/rk66UFzDO" target="_blank" rel="noopener"><span data-position="184" data-size="10">1. 分離軸碰撞檢測</span></a></li>
 <li class="" data-startline="17" data-endline="18" data-position="239" data-size="0"><a href="/6E9tpjt3Rvihx2GRpIzVSQ" target="_blank" rel="noopener"><span data-position="240" data-size="6">2. GJK</span></a></li>
-</ul><h3 class="part in-view" data-startline="19" data-endline="19" id="數學公式" data-id="數學公式"><a class="anchor hidden-xs" href="#數學公式" title="數學公式" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="278" data-size="4">數學公式</span></h3><ul class="part in-view" data-startline="20" data-endline="22">
+</ul><h3 class="part in-view" data-startline="19" data-endline="19" id="數學公式" data-id="數學公式"><a class="anchor hidden-xs" href="#數學公式" title="數學公式" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="278" data-size="4" data-inline-comment-id="user-selection-highlight" class="ui-comment-inline-span">數學公式</span></h3><ul class="part in-view" data-startline="20" data-endline="22">
 <li class="" data-startline="20" data-endline="20" data-position="285" data-size="0"><a href="https://hackmd.io/@leon890820/Skp69Qawd" target="_blank" rel="noopener"><span data-position="286" data-size="5">3. 向量</span></a></li>
 <li class="" data-startline="21" data-endline="22" data-position="336" data-size="0"><a href="/Qy-2kw50SYKxSKDtaxuXWg" target="_blank" rel="noopener"><span data-position="337" data-size="6">4.旋轉矩陣</span></a></li>
 </ul><h3 class="part in-view" data-startline="23" data-endline="23" id="代碼實現" data-id="代碼實現"><a class="anchor hidden-xs" href="#代碼實現" title="代碼實現" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="375" data-size="4">代碼實現</span></h3><ul class="part in-view" data-startline="24" data-endline="27">
@@ -95,170 +99,170 @@
 <li class="" data-startline="37" data-endline="39" data-position="618" data-size="0"><a href="/93KWRQucSeiioLQIzdwOzw" target="_blank" rel="noopener"><span data-position="619" data-size="12">2.Vec3 class</span></a></li>
 </ul><style>
 .green {
-color:#29E5A9;
+    color:#29E5A9;
 }
 
 .yellow {
-color:#F1EF78;
+    color:#F1EF78;
 }
 
 .brown {
-color:#990000;
+    color:#990000;
 }
 
 .pink {
-color:#DD9FBD;
+    color:#DD9FBD;
 }
 
 .red {
-color:#E71B18 ;
+    color:#E71B18 ;
 }
-
+    
 .orange {
-color:#E8A635;
+    color:#E8A635;
 }
-
+    
 .purple {
-color:#AC9FDD;        
+    color:#AC9FDD;        
 }
 
 .blue {
-color:#20DEE5;
+    color:#20DEE5;
 }
 
 .ivory {
-color:#FFFFF0;
+    color:#FFFFF0;
 }
 
 .pearl {
-color:#EAE0C8;
+    color:#EAE0C8;
 }
 
 .beige {
-color:#F5F5DC;
+    color:#F5F5DC;
 }
 
 .cornsilk {
-color:#FFF8DC;
+    color:#FFF8DC;
 }
 
 .gainsboro {
-color:#DCDCDC;
+    color:#DCDCDC;
 }
 
 .light_grey {
-color:#D3D3D3;
+    color:#D3D3D3;
 }
 
 .silver {
-color:#C0C0C0;
+    color:#C0C0C0;
 }
 
 .dark_grey {
-color:#A9A9A9;
+    color:#A9A9A9;
 }
 
 .wheat {
-color:#F5DEB3;
+    color:#F5DEB3;
 }
 
 .burlywood {
-color:#DEB887;
+    color:#DEB887;
 }
 
 .tan {
-color:#D2B48C;
+    color:#D2B48C;
 }
 
 /* https:\//english.cool\/colors\/ 這裡很多顏色，把反斜線去掉 */
 
 a.redlink { 
-color:#DB1859;
+    color:#DB1859;
 }
-
+    
 a.redlink:link {
-color:#DB1859;
-text-decoration:none;
+    color:#DB1859;
+    text-decoration:none;
 }
-
+    
 
 a.redlink:visiteid {
-color:#DB1859;
-text-decoration:none;
+    color:#DB1859;
+    text-decoration:none;
 }
 
 a.redlink:hover {
-color:#19CABC;
-text-decoration:none;
+    color:#19CABC;
+    text-decoration:none;
 }
 
 a.redlink:active {
-color:#DB1859;
-text-decoration:underline;
-background:#FFFFFF;
+    color:#DB1859;
+    text-decoration:underline;
+    background:#FFFFFF;
 }
 
 a.pinklink {
-color:#DD9FBD;
-text-decoration:none;
+    color:#DD9FBD;
+    text-decoration:none;
 }
 a.pinklink:visiteid {
-color:#DD9FBD;
-text-decoration:none;
+    color:#DD9FBD;
+    text-decoration:none;
 }
 a.pinklink:hover {
-color:#19CABC;
-text-decoration:none;
+    color:#19CABC;
+    text-decoration:none;
 }
 a.pinklink:active {
-color:#DD9FBD;
-text-decoration:underline;
-background:#FFFFFF;
+    color:#DD9FBD;
+    text-decoration:underline;
+    background:#FFFFFF;
 }
 
 a.wheatlink {
-color:#F5DEB3;
-text-decoration:none;
+    color:#F5DEB3;
+    text-decoration:none;
 }
 a.wheatlink:visiteid {
-color:#F5DEB3;
-text-decoration:none;
+    color:#F5DEB3;
+    text-decoration:none;
 }
 a.wheatlink:hover {
-color:#19CABC;
-text-decoration:none;
+    color:#19CABC;
+    text-decoration:none;
 }
 a.wheatlink:active {
-color:#F5DEB3;
-text-decoration:underline;
-background:#FFFFFF;
+    color:#F5DEB3;
+    text-decoration:underline;
+    background:#FFFFFF;
 }
 
 @-webkit-keyframes A
 {
-0% {  color: #C10066;}
-10% {  color: #CC0000;}
-20% {  color: #E63F00;}
-30% {  color: #EE7700;}
-40% {  color: #DDAA00;}
-50% {  color: #EEEE00;}
-60% {  color: #99DD00;}
-70% {  color: #66DD00;}
-80% {  color: #00DDDD;}
-90% {  color: #0044BB;} 
-100% {  color: #A500CC;}
+    0% {  color: #C10066;}
+   10% {  color: #CC0000;}
+   20% {  color: #E63F00;}
+   30% {  color: #EE7700;}
+   40% {  color: #DDAA00;}
+   50% {  color: #EEEE00;}
+   60% {  color: #99DD00;}
+   70% {  color: #66DD00;}
+   80% {  color: #00DDDD;}
+   90% {  color: #0044BB;} 
+  100% {  color: #A500CC;}
 }
 
 #animation_title{
 animation: A 3s ease 0s infinite alternate;
--webkit-animation: A 3s ease 0s infinite alternate;
-}
-
+  -webkit-animation: A 3s ease 0s infinite alternate;
+  }
+    
 </style><style>
 
 html, body, .ui-content {
-background-color: #333;
-color: #ddd;
+    background-color: #333;
+    color: #ddd;
 }
 
 .summary h1,
@@ -267,38 +271,38 @@ color: #ddd;
 .summary h4,
 .summary h5,
 .summary h6 {
-color : #00DDDD;    /*這是書本的標題顏色*/
+    color : #00DDDD;    /*這是書本的標題顏色*/
 }
 
 body > .ui-infobar {
-display: none;
+    display: none;
 }
 
 .ui-view-area > .ui-infobar {
-display: block;
+    display: block;
 }
 
 .markdown-body h1,
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-color : #FBFBFB;    /*這是標頭顏色*/
+    color : #FBFBFB;    /*這是標頭顏色*/
 }
 
 .markdown-body h1 {
-color: #E8A635;
+    color: #E8A635;
 }
 
 .markdown-body h2 {
-color: #29E5A9;
+    color: #29E5A9;
 }
 .markdown-body h3 {
-color: #F5DEB3;    /*這是標頭顏色*/
+    color: #F5DEB3;    /*這是標頭顏色*/
 }
 
 .markdown-body h1,
 .markdown-body h2 {
-border-bottom-color: #FBFBFB;    /*這是線的顏色*/
+    border-bottom-color: #FBFBFB;    /*這是線的顏色*/
 }
 
 .markdown-body h1 .octicon-link,
@@ -307,16 +311,16 @@ border-bottom-color: #FBFBFB;    /*這是線的顏色*/
 .markdown-body h4 .octicon-link,
 .markdown-body h5 .octicon-link,
 .markdown-body h6 .octicon-link {
-color: #FBFBFB;    /*這是標頭連結的顏色，旁邊小小的那個按鈕的顏色*/
+    color: #FBFBFB;    /*這是標頭連結的顏色，旁邊小小的那個按鈕的顏色*/
 }
 
 .markdown-body img {
-background-color: transparent;
+    background-color: transparent;
 }
 
 .ui-toc-dropdown .nav>.active:focus>a, .ui-toc-dropdown .nav>.active:hover>a, .ui-toc-dropdown .nav>.active>a {
-color: white;
-border-left: 2px solid white;
+    color: white;
+    border-left: 2px solid white;
 }
 
 .expand-toggle:hover, 
@@ -325,55 +329,55 @@ border-left: 2px solid white;
 .back-to-top:focus, 
 .go-to-bottom:hover, 
 .go-to-bottom:focus {
-color: white;    /*這是游標移到左上列表時顯示的顏色*/
+    color: white;    /*這是游標移到左上列表時顯示的顏色*/
 }
 
 
 .ui-toc-dropdown {
-background-color: #333;    /*這是左上列表的底色*/
+    background-color: #333;    /*這是左上列表的底色*/
 }
 
 .ui-toc-label.btn {
-background-color: #191919;
-color: white;
+    background-color: #191919;
+    color: white;
 }
 
 .ui-toc-dropdown .nav>li>a:focus, 
 .ui-toc-dropdown .nav>li>a:hover {
-color: white;
-border-left: 1px solid white;
+    color: white;
+    border-left: 1px solid white;
 }
 
 .markdown-body blockquote {
-color: #bcbcbc;
+    color: #bcbcbc;
 }
 
 .markdown-body table tr {
-background-color: #5f5f5f;
+    background-color: #5f5f5f;
 }
 
 .markdown-body table tr:nth-child(2n) {
-background-color: #4f4f4f;
+    background-color: #4f4f4f;
 }
 
 .markdown-body code,
 .markdown-body tt {
-color: #ddd;
-background-color: rgba(230, 230, 230, 0.36);    /*這是 `` 的背景顏色*/
+    color: #ddd;
+    background-color: rgba(230, 230, 230, 0.36);    /*這是 `` 的背景顏色*/
 }
 
 a,
 .open-files-container li.selected a {
-color: #5EB7E0;    /*這是連結的顏色*/
+    color: #5EB7E0;    /*這是連結的顏色*/
 }
 
 </style></div>
-    <div class="ui-toc dropup unselectable hidden-print scrollspy-view" style="display: none; left: 259.641px;">
-        <div class="pull-left dropdown">
-            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="目錄">
-                <i class="fa fa-bars"></i>
-            </a>
-            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav">
+        <div class="ui-toc dropup unselectable hidden-print scrollspy-view" style="display: none; left: 259.641px;">
+            <div class="pull-left dropdown">
+                <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="目錄">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav">
 <li class="active"><a href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll="">遊戲引擎框架實作</a><ul class="nav">
 <li><a href="#碰撞器" title="碰撞器" smoothhashscroll="">碰撞器</a><ul class="nav">
 <li><a href="#介紹" title="介紹" smoothhashscroll="">介紹</a></li>
@@ -390,9 +394,9 @@ color: #5EB7E0;    /*這是連結的顏色*/
 </li>
 </ul>
 </div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div></ul>
+            </div>
         </div>
-    </div>
-    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print scrollspy-body" data-spy="affix" style="top: 103px; left: 90.953px; width: 296px;"><div class="toc"><ul class="nav">
+        <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print scrollspy-body affix" data-spy="affix" style="top: 103px; left: 90.953px; width: 296px;"><div class="toc"><ul class="nav">
 <li class="active"><a href="#遊戲引擎框架實作" title="遊戲引擎框架實作" smoothhashscroll="">遊戲引擎框架實作</a><ul class="nav">
 <li><a href="#碰撞器" title="碰撞器" smoothhashscroll="">碰撞器</a><ul class="nav">
 <li><a href="#介紹" title="介紹" smoothhashscroll="">介紹</a></li>
@@ -409,4 +413,5 @@ color: #5EB7E0;    /*這是連結的顏色*/
 </li>
 </ul>
 </div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div></div>
+    </div>
 </div>
