@@ -15,7 +15,7 @@ class Shader {
         this.program = this.addShaderLocations({
             glShaderProgram: this.linkShader(vs, fs),
         }, shaderLocations);
-        console.log(this.program);
+        //console.log(this.program);
     }
 
     compileShader(shaderSource, shaderType) {
@@ -64,7 +64,7 @@ class Shader {
                 });
             }
         }
-
+        console.log(result)
         return result;
 
     };

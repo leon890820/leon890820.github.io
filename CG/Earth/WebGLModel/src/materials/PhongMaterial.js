@@ -21,7 +21,7 @@ async function buildPhongMaterial(color, specular, light, translate, scale, vert
 
     let vertexShader = await getShaderString(vertexPath);
     let fragmentShader = await getShaderString(fragmentPath);
-
+    //console.log(specular);
     return new PhongMaterial(color, specular, light, translate, scale, vertexShader, fragmentShader);
 
 }

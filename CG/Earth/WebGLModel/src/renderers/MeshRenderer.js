@@ -109,6 +109,7 @@ class MeshRender{
 			const normalize = false;
 			const stride = 0;
 			const offset = 0;
+			//console.log(this.shader.program.attribs[this.mesh.texcoordsName]);
 			gl.bindBuffer(gl.ARRAY_BUFFER, this.#texcoordBuffer);
 			gl.vertexAttribPointer(
 				this.shader.program.attribs[this.mesh.texcoordsName],

@@ -1,4 +1,4 @@
-var cameraPosition = [30, 30, 30]
+var cameraPosition = [100, 100, 100]
 
 //生成的纹理的分辨率，纹理必须是标准的尺寸 256*256 1024*1024  2048*2048
 var resolution = 2048;
@@ -55,14 +55,16 @@ function main(){
     renderer.addLight(directionLight);
 
 	let floorTransform = setTransform(0, 0, -30, 4, 4, 4);
-	let obj1Transform = setTransform(0, 0, 0, 20, 20, 20);
+	let obj1Transform = setTransform(0, 0, 0, 100, 100, 100);
 	let obj2Transform = setTransform(40, 0, -40, 10, 10, 10);
 
-	loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj2Transform);
+	//loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj2Transform);
 	//loadOBJ(renderer, 'assets/mary/', 'Marry', 'PhongMaterial', obj2Transform);
 	//loadOBJ(renderer, 'assets/floor/', 'floor', 'PhongMaterial', floorTransform);
-	loadSphere(renderer,directionLight,Date.now(),100,obj1Transform);
-	
+	//loadSphere(renderer,directionLight,Date.now(),100,obj1Transform);
+	loadEarth(renderer,directionLight,100,obj1Transform);
+
+
     function createGUI() {
 		const gui = new dat.gui.GUI();
 		// const panelModel = gui.addFolder('Model properties');
@@ -89,11 +91,11 @@ var currentAngle = 0;
 
 function updateLightPos(light){
 	var angle = currentAngle* PI/180;
-	light.lightPos = [Math.cos(angle)*80,60 + Math.sin(2*angle)*20,Math.sin(angle)*80];
+	light.lightPos = [Math.cos(angle)*500,60 + Math.sin(2*angle)*20,Math.sin(angle)*500];
 }
 
  // Last time that this function was called
-var ANGLE_STEP = 40;
+var ANGLE_STEP = 20;
 function animate(angle) {
   var now = Date.now();   // Calculate the elapsed time
   var elapsed = now - last;

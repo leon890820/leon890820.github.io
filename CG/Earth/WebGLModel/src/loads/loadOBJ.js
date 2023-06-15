@@ -35,7 +35,7 @@ function loadOBJ(renderer, path, name, objMaterial, transform) {
 								indices, transform);
 
 							let colorMap = new Texture();
-							console.log(mat);
+							//console.log(mat.map.image);
 							if (mat.map != null) {
 								colorMap.CreateImageTexture(renderer.gl, mat.map.image);
 							}
@@ -44,7 +44,7 @@ function loadOBJ(renderer, path, name, objMaterial, transform) {
 								colorMap.CreateConstantTexture(renderer.gl, mat.color.toArray());
 								
 							}
-							
+							//console.log(mat.map.image);
 							let material, shadowMaterial;
 							let Translation = [transform.modelTransX, transform.modelTransY, transform.modelTransZ];
 							let Scale = [transform.modelScaleX, transform.modelScaleY, transform.modelScaleZ];

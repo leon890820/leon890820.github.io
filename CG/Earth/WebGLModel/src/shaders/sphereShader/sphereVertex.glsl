@@ -25,7 +25,7 @@ void main(void) {
   vFragPos = (uModelMatrix * vec4(aVertexPosition, 1.0)).xyz;
   vNormal = (uModelMatrix * vec4(aNormalPosition, 0.0)).xyz;
 
-  vec3 position = aVertexPosition + aNormalPosition*displace(aVertexPosition)*0.15;
+  vec3 position = aVertexPosition; //+ aNormalPosition*displace(aVertexPosition)*0.15;
 
   //vTextureCoord = aTextureCoord;
   //vPositionFromLight = uLightMVP * vec4(aVertexPosition, 1.0);

@@ -14,3 +14,27 @@ function loadSphere(renderer,light,time,resolution,transform){
     });
     
 }
+
+function loadEarth(renderer,light,resolution,transform){
+    sphere = Sphere.sphere(resolution,transform);
+    var image = new Image();
+    image.src = "assets/mary/earth_color_4096.png"
+    image.crossOrigin = "anonymous"
+    //image.onload = function(){loadTex};
+
+    let colorMap = new Texture();
+    
+    colorMap.CreateImageTexture(renderer.gl, image);
+    
+    
+
+    let Translation = [transform.modelTransX, transform.modelTransY, transform.modelTransZ];
+	let Scale = [transform.modelScaleX, transform.modelScaleY, transform.modelScaleZ];
+    material = buildPhongMaterial( colorMap , [ 1 , 1 , 1 ] , light, Translation,Scale , "./src/shaders/phongShader/phongVertex.glsl", "./src/shaders/phongShader/phongFragment.glsl");
+
+    material.then((data) => {
+        let meshRender = new MeshRender(renderer.gl, sphere, data);
+        renderer.addMeshRender(meshRender);
+    });
+    
+}

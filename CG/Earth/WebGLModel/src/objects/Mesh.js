@@ -35,6 +35,7 @@ class Mesh{
 			this.texcoords = texcoordsAttrib.array;
 			this.texcoordsName = texcoordsAttrib.name;
 		}
+		console.log(this.texcoordsName);
 	}
 
 	update(time){
@@ -47,15 +48,10 @@ class Mesh{
 			newPosition.push(this.vertices[3 * i + 2] + this.normals[3 * i + 2] * a * 0.15); 
 			
 		}
-		//console.log(newPosition);
-		//console.log(this.normals);
-		//console.log(newPosition);
-		
 		var newNormal = [];
 		for(var i = 0;i<this.normals.length;i+=1){
 			newNormal.push(0);		
 		}
-		//console.log(this.newNormal);
 		for(var i=0;i<this.indices.length/3;i++){
 			var p0 = [newPosition[this.indices[i * 3] * 3] , newPosition[this.indices[i * 3] * 3 + 1],newPosition[this.indices[i * 3] * 3 + 2]];
 			var p1 = [newPosition[this.indices[i * 3 + 1] * 3] , newPosition[this.indices[i * 3 + 1] * 3 + 1],newPosition[this.indices[i * 3 + 1] * 3 + 2]];
@@ -74,14 +70,13 @@ class Mesh{
 			newNormal[this.indices[i * 3 + 2] * 3    ] += n[0];
 			newNormal[this.indices[i * 3 + 2] * 3 + 1] += n[1];
 			newNormal[this.indices[i * 3 + 2] * 3 + 2] += n[2];
-			//console.log(this.indices[i * 3 + 2]);
 		}
 		
 		
 		
 		this.newvertices = new Float32Array(newPosition);
 		this.newNormal = new Float32Array(newNormal);
-		//console.log(this.newvertices);
+	
 	}
 
     static cube(transform) {
@@ -142,26 +137,27 @@ class Sphere{
 	static sphere(resolution = 10,transform){
 		var position = [];
 		var normal = [];
+		var uvs = [];
 		position.push(0,1,0);
 		normal.push(0,1,0);
+		uvs.push(0.5,1)
 		for(var i=1;i<resolution-1;i++){
 			for(var j=0;j<resolution;j++){
-				var theta = map(j,0,resolution,0,2*PI);
+				var theta = map(j,0,resolution-1,0,2*PI);
 				var phi = map(i,0,resolution,0,PI);
+				var u = map(theta,0,2*PI,1,0);
+				var v = map(phi,0,PI,1,0);
 				var x = Math.sin(phi) * Math.cos(theta);
 				var y = Math.cos(phi);
 				var z = Math.sin(phi) * Math.sin(theta);
-				position.push(x);
-				position.push(y);
-				position.push(z);
-				normal.push(x);
-				normal.push(y);
-				normal.push(z);
-				
+				position.push(x,y,z);
+				normal.push(x,y,z);		
+				uvs.push(u,v);		
 			}
 		}
 		position.push(0,-1,0);
 		normal.push(0,-1,0);
+		uvs.push(0.5,0);
 		
 		var indices = [];
 		for(var i = 0;i<resolution;i++){
@@ -190,7 +186,7 @@ class Sphere{
 			indices.push(s);
 		}
 		
-		return new Mesh({name:'aVertexPosition',array:new Float32Array(position)},{name:'aNormalPosition',array:new Float32Array(normal)},null,indices,transform)
+		return new Mesh({name:'aVertexPosition',array:new Float32Array(position)},{name:'aNormalPosition',array:new Float32Array(normal)},{ name: 'aTextureCoord', array: new Float32Array(uvs) },indices,transform)
 
 
 	}

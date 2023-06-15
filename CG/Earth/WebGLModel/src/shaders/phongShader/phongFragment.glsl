@@ -31,12 +31,12 @@ vec3 blinnPhong() {
   float diff = max(dot(lightDir, normal), 0.0);
   vec3 light_atten_coff =
       uLightIntensity / pow(length(uLightPos - vFragPos), 2.0);
-  vec3 diffuse = diff * light_atten_coff * color;
+  vec3 diffuse = diff  * color * vec3(0.6,0.6,0.6);
 
   vec3 viewDir = normalize(uCameraPos - vFragPos);
   vec3 halfDir = normalize((lightDir + viewDir));
   float spec = pow(max(dot(halfDir, normal), 0.0), 32.0);
-  vec3 specular = uKs * light_atten_coff * spec;
+  vec3 specular = vec3(0.3,0.3,0.3) * light_atten_coff * spec;
 
   vec3 radiance = (ambient + diffuse + specular);
   vec3 phongColor = pow(radiance, vec3(1.0 / 2.2));
