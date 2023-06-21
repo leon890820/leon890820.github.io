@@ -18,29 +18,39 @@ function loadSphere(renderer,light,time,resolution,transform){
 function loadEarth(renderer,light,resolution,transform){
     sphere = Sphere.sphere(resolution,transform);
     var image = new Image();
+    var roughness = new Image();
+    var colorMap = new Texture();
 
-    image.onload = function(){
-        let colorMap = new Texture();
-    
-        colorMap.CreateImageTexture(renderer.gl, image);
-        
-        
+    image.onload = function(){           
+        colorMap.CreateImageTexture(renderer.gl, image);              
+    }
 
+    roughness.onload = function(){      
+        var roughnessMap = new Texture();     
+        roughnessMap.CreateImageTexture(renderer.gl, roughness);      
+        
         let Translation = [transform.modelTransX, transform.modelTransY, transform.modelTransZ];
         let Scale = [transform.modelScaleX, transform.modelScaleY, transform.modelScaleZ];
-        material = buildPhongMaterial( colorMap , [ 1 , 1 , 1 ] , light, Translation,Scale , "./src/shaders/phongShader/phongVertex.glsl", "./src/shaders/phongShader/phongFragment.glsl");
+        material = buildBRDFMaterial( colorMap ,roughnessMap, [ 1 , 1 , 1 ] , light, Translation,Scale , "./src/shaders/brdfShader/brdfVertex.glsl", "./src/shaders/brdfShader/brdfFragment.glsl");
 
         material.then((data) => {
             let meshRender = new MeshRender(renderer.gl, sphere, data);
             renderer.addMeshRender(meshRender);
         });
-
     }
 
     image.src = "assets/earth/earth_color_20K.png"
-    image.crossOrigin = "anonymous"
+    
+    roughness.src = "assets/earth/earth_roughness.png"
+    //image.crossOrigin = "anonymous"
     //image.onload = function(){loadTex};
 
     
     
+
+
+
 }
+
+
+

@@ -26,10 +26,10 @@ class Texture {
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
         gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
             srcFormat, srcType, image);
-
+        gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
         gl.bindTexture(gl.TEXTURE_2D, null);
-
-        this.CreateMipmap(gl, image.width, image.height);
+        
+        //this.CreateMipmap(gl, image.width, image.height);
     }
 
     CreateConstantTexture(gl, buffer) {
