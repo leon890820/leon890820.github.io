@@ -77,7 +77,7 @@ function GAMES202Main() {
 		// panelModelTrans.add(GUIParams, 'x').name('X');
 		// panelModel.open();
 	}
-	createGUI();
+	//createGUI();
 
 	function mainLoop(now) {
 		cameraControls.update();
